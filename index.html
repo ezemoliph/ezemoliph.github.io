@@ -1,16 +1,125 @@
 <!DOCTYPE HTML>
 <!--
-	Multiverse by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	Base: Multiverse by HTML5 UP (html5up.net | @ajlkn) - licencia CCA 3.0
+	Reordenado y optimizado para ezemoli.
 -->
-<html>
+<html lang="es">
 	<head>
-		<title>ezemoli</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<title>Ezequiel Molina — Fotografía nocturna y de montaña | Córdoba, Argentina</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="Fotografía nocturna, de montaña y de expedición. Auroras australes desde la Base Belgrano II, Antártida; sierras de Córdoba, Jujuy, Salta y Patagonia. Ezequiel Molina (ezemoli), Córdoba, Argentina." />
+		<meta name="author" content="Ezequiel Molina" />
+		<meta name="theme-color" content="#242629" />
+		<link rel="canonical" href="https://ezemoliph.github.io/" />
+
+		<!-- Como se ve el link al compartirlo (WhatsApp, Instagram, Facebook) -->
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="es_AR" />
+		<meta property="og:site_name" content="ezemoli" />
+		<meta property="og:title" content="Ezequiel Molina — Fotografía nocturna y de montaña" />
+		<meta property="og:description" content="Fotografía nocturna, de montaña y de expedición. Auroras australes desde la Base Belgrano II, Antártida; sierras de Córdoba, Jujuy, Salta y Patagonia. Ezequiel Molina (ezemoli), Córdoba, Argentina." />
+		<meta property="og:url" content="https://ezemoliph.github.io/" />
+		<meta property="og:image" content="https://ezemoliph.github.io/og-image.jpg" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content="Aurora austral sobre el hielo antártico." />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Ezequiel Molina — Fotografía nocturna y de montaña" />
+		<meta name="twitter:description" content="Fotografía nocturna, de montaña y de expedición. Auroras australes desde la Base Belgrano II, Antártida; sierras de Córdoba, Jujuy, Salta y Patagonia. Ezequiel Molina (ezemoli), Córdoba, Argentina." />
+		<meta name="twitter:image" content="https://ezemoliph.github.io/og-image.jpg" />
+
+		<link rel="icon" href="favicon.ico" sizes="any" />
+		<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+		<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Person",
+			"name": "Ezequiel Molina",
+			"alternateName": "ezemoli",
+			"jobTitle": "Fotógrafo",
+			"email": "ezemoli.ph@gmail.com",
+			"url": "https://ezemoliph.github.io/",
+			"image": "https://ezemoliph.github.io/sobre-mi.jpg",
+			"address": { "@type": "PostalAddress", "addressLocality": "Córdoba", "addressCountry": "AR" },
+			"knowsAbout": ["Fotografía nocturna", "Fotografía de montaña", "Fotografía de expedición", "Astrofotografía"],
+			"sameAs": ["https://www.instagram.com/eze_moli/"]
+		}
+		</script>
+
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+		<!-- Ajustes ezemoli sobre la plantilla -->
+		<style>
+			#main .serie {
+				-webkit-flex-basis: 100%; -ms-flex-basis: 100%; flex-basis: 100%;
+				width: 100%; padding: 4rem 2rem 1.7rem 2rem;
+				border-top: 1px solid rgba(255,255,255,0.12);
+			}
+			#main .serie:first-child { border-top: 0; padding-top: 2.5rem; }
+			#main .serie h2 {
+				font-size: 1.35rem; letter-spacing: 0.35rem; text-transform: uppercase;
+				margin: 0 0 0.45rem 0; color: #fff;
+			}
+			#main .serie p {
+				margin: 0; max-width: 46rem; font-size: 0.85rem; line-height: 1.6;
+				color: rgba(255,255,255,0.55);
+			}
+			/* Velo inferior mas fuerte: el texto blanco tiene que leerse tambien sobre nieve */
+			#main .thumb:after {
+				background-image: linear-gradient(to top,
+					rgba(10,17,25,0.88) 0%, rgba(10,17,25,0.45) 24%, rgba(10,17,25,0) 58%);
+			}
+			/* El epigrafe venia en display:none. Lo mostramos debajo del titulo. */
+			#main .thumb > h2 { bottom: 2.55rem; left: 1.75rem; font-size: 0.8rem; }
+			#main .thumb > p {
+				display: block; position: absolute; z-index: 1; pointer-events: none;
+				bottom: 1.25rem; left: 1.75rem; right: 1.5rem; margin: 0;
+				font-size: 0.72rem; line-height: 1.35; color: rgba(255,255,255,0.72);
+			}
+			/* Retrato en Sobre mi */
+			#footer .retrato { display: block; width: 100%; max-width: 21rem; height: auto; margin: 0 0 0.6rem 0; }
+			#footer .pie { display: block; font-size: 0.72rem; color: rgba(255,255,255,0.45); margin: 0 0 1.6rem 0; }
+			@media screen and (max-width: 736px) {
+				#main .serie { padding: 2.5rem 1.5rem 1.2rem 1.5rem; }
+				#main .thumb > h2, #main .thumb > p { left: 1.25rem; }
+				#header nav ul li.serie-link { display: none; }
+			}
+				#main .thumb:nth-child(2) { transition-delay: 0.00s; }
+				#main .thumb:nth-child(3) { transition-delay: 0.13s; }
+				#main .thumb:nth-child(4) { transition-delay: 0.26s; }
+				#main .thumb:nth-child(5) { transition-delay: 0.39s; }
+				#main .thumb:nth-child(6) { transition-delay: 0.52s; }
+				#main .thumb:nth-child(7) { transition-delay: 0.65s; }
+				#main .thumb:nth-child(8) { transition-delay: 0.78s; }
+				#main .thumb:nth-child(9) { transition-delay: 0.91s; }
+				#main .thumb:nth-child(10) { transition-delay: 1.04s; }
+				#main .thumb:nth-child(12) { transition-delay: 1.17s; }
+				#main .thumb:nth-child(13) { transition-delay: 1.30s; }
+				#main .thumb:nth-child(14) { transition-delay: 1.43s; }
+				#main .thumb:nth-child(15) { transition-delay: 1.56s; }
+				#main .thumb:nth-child(16) { transition-delay: 1.69s; }
+				#main .thumb:nth-child(17) { transition-delay: 1.82s; }
+				#main .thumb:nth-child(19) { transition-delay: 1.95s; }
+				#main .thumb:nth-child(20) { transition-delay: 2.08s; }
+				#main .thumb:nth-child(21) { transition-delay: 2.21s; }
+				#main .thumb:nth-child(22) { transition-delay: 2.34s; }
+				#main .thumb:nth-child(23) { transition-delay: 2.47s; }
+				#main .thumb:nth-child(24) { transition-delay: 2.60s; }
+				#main .thumb:nth-child(26) { transition-delay: 2.73s; }
+				#main .thumb:nth-child(27) { transition-delay: 2.86s; }
+				#main .thumb:nth-child(28) { transition-delay: 2.99s; }
+				#main .thumb:nth-child(29) { transition-delay: 3.12s; }
+				#main .thumb:nth-child(30) { transition-delay: 3.25s; }
+				#main .thumb:nth-child(32) { transition-delay: 3.38s; }
+				#main .thumb:nth-child(33) { transition-delay: 3.51s; }
+				#main .thumb:nth-child(34) { transition-delay: 3.64s; }
+				#main .thumb:nth-child(35) { transition-delay: 3.77s; }
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -22,72 +131,197 @@
 						<h1><a href="index.html"><strong>Portfolio</strong> by ezemoli</a></h1>
 						<nav>
 							<ul>
-								<li><a href="#footer" class="icon solid fa-info-circle">Sobre mi</a></li>
+								<li class="serie-link"><a href="#antartida">Antártida</a></li>
+								<li class="serie-link"><a href="#noche">Noche</a></li>
+								<li class="serie-link"><a href="#norte">Norte</a></li>
+								<li class="serie-link"><a href="#cordoba">Córdoba</a></li>
+								<li class="serie-link"><a href="#rutas">Rutas</a></li>
+								<li><a href="#footer" class="icon solid fa-info-circle">Sobre mí</a></li>
 							</ul>
 						</nav>
 					</header>
 
 				<!-- Main -->
 					<div id="main">
-						<article class="thumb">
-							<a href="images/fulls/01.jpg" class="image"><img src="images/thumbs/01.jpg" alt="" /></a>
+
+						<!-- ANTÁRTIDA -->
+						<header class="serie" id="antartida">
 							<h2>Antártida</h2>
-							<p>Relevo en la antártida Argentina. Base Belgrano 2. 2020.</p>
+							<p>Campaña de relevo en la Base Belgrano II, 2020. Hielo, fauna y noche austral.</p>
+						</header>
+						<article class="thumb">
+							<a href="images/fulls/antartida-01.jpg" class="image"><img src="images/thumbs/antartida-01.jpg" loading="lazy" alt="La base sobre la barrera de hielo. Antártida, 2020." /></a>
+							<h2>Base Belgrano II</h2>
+							<p>La base sobre la barrera de hielo. Antártida, 2020.</p>
 						</article>
 						<article class="thumb">
-							<a href="images/fulls/02.jpg" class="image"><img src="images/thumbs/02.jpg" alt="" /></a>
-							<h2>Córdoba en Paisajes</h2>
-							<p>.</p>
+							<a href="images/fulls/antartida-02.jpg" class="image"><img src="images/thumbs/antartida-02.jpg" loading="lazy" alt="Operación de vuelo sobre el hielo. Antártida, 2020." /></a>
+							<h2>Sea King</h2>
+							<p>Operación de vuelo sobre el hielo. Antártida, 2020.</p>
 						</article>
 						<article class="thumb">
-							<a href="images/fulls/03.jpg" class="image"><img src="images/thumbs/03.jpg" alt="" /></a>
-							<h2>Nocturnas</h2>
-							<p>Un viaje a las estrellas  .</p>
+							<a href="images/fulls/antartida-03.jpg" class="image"><img src="images/thumbs/antartida-03.jpg" loading="lazy" alt="Descarga en el hielo. Base Belgrano II, 2020." /></a>
+							<h2>Relevo</h2>
+							<p>Descarga en el hielo. Base Belgrano II, 2020.</p>
 						</article>
 						<article class="thumb">
-							<a href="images/fulls/04.jpg" class="image"><img src="images/thumbs/04.jpg" alt="" /></a>
-							<h2>Blanco y Negro</h2>
-							<p>Salinas grandes. Córdoba-Argentina.</p>
+							<a href="images/fulls/antartida-04.jpg" class="image"><img src="images/thumbs/antartida-04.jpg" loading="lazy" alt="Marcando la huella sobre el hielo. Base Belgrano II, 2020." /></a>
+							<h2>Balizamiento</h2>
+							<p>Marcando la huella sobre el hielo. Base Belgrano II, 2020.</p>
 						</article>
 						<article class="thumb">
-							<a href="images/fulls/05.jpg" class="image"><img src="images/thumbs/05.jpg" alt="" /></a>
-							<h2>Patagonia</h2>
-							<p>Patagonia-Argentina.</p>
+							<a href="images/fulls/antartida-05.jpg" class="image"><img src="images/thumbs/antartida-05.jpg" loading="lazy" alt="Luz rasante sobre la barrera de hielo. Antártida, 2020." /></a>
+							<h2>Barrera</h2>
+							<p>Luz rasante sobre la barrera de hielo. Antártida, 2020.</p>
 						</article>
 						<article class="thumb">
-							<a href="images/fulls/06.jpg" class="image"><img src="images/thumbs/06.jpg" alt="" /></a>
-							<h2>Auroras australes</h2>
-							<p>En direción sur. Base Belgrano 2. 2020</p>
+							<a href="images/fulls/antartida-06.jpg" class="image"><img src="images/thumbs/antartida-06.jpg" loading="lazy" alt="Dos pingüinos emperador sobre el hielo marino. Antártida, 2020." /></a>
+							<h2>Emperadores</h2>
+							<p>Dos pingüinos emperador sobre el hielo marino. Antártida, 2020.</p>
 						</article>
 						<article class="thumb">
-							<a href="images/fulls/07.jpg" class="image"><img src="images/thumbs/07.jpg" alt="" /></a>
-							<h2>Naturaleza</h2>
-							<p>Naturaleza-Aves.</p>
+							<a href="images/fulls/antartida-07.jpg" class="image"><img src="images/thumbs/antartida-07.jpg" loading="lazy" alt="Avistaje desde cubierta. Antártida, 2020." /></a>
+							<h2>Ballena</h2>
+							<p>Avistaje desde cubierta. Antártida, 2020.</p>
 						</article>
 						<article class="thumb">
-							<a href="images/fulls/08.jpg" class="image"><img src="images/thumbs/08.jpg" alt="" /></a>
-							<h2>Yo</h2>
-							<p>De vez en cuando soy mi propio modelo.</p>
+							<a href="images/fulls/antartida-08.jpg" class="image"><img src="images/thumbs/antartida-08.jpg" loading="lazy" alt="Aurora sobre el hielo. Base Belgrano II, 2020." /></a>
+							<h2>Aurora austral</h2>
+							<p>Aurora sobre el hielo. Base Belgrano II, 2020.</p>
 						</article>
 						<article class="thumb">
-							<a href="images/fulls/09.jpg" class="image"><img src="images/thumbs/09.jpg" alt="" /></a>
-							<h2>Compañera</h2>
-							<p>Siempre es bueno estar bien acompañado</p>
+							<a href="images/fulls/antartida-09.jpg" class="image"><img src="images/thumbs/antartida-09.jpg" loading="lazy" alt="Aurora sobre la base. Belgrano II, 2020." /></a>
+							<h2>Noche austral</h2>
+							<p>Aurora sobre la base. Belgrano II, 2020.</p>
+						</article>
+
+						<!-- NOCHE -->
+						<header class="serie" id="noche">
+							<h2>Noche</h2>
+							<p>Cielo nocturno y luz artificial en el paisaje. Salinas, sierras y quebradas.</p>
+						</header>
+						<article class="thumb">
+							<a href="images/fulls/noche-01.jpg" class="image"><img src="images/thumbs/noche-01.jpg" loading="lazy" alt="Una linterna contra el centro galáctico. Salinas Grandes, Córdoba." /></a>
+							<h2>Bajo la Vía Láctea</h2>
+							<p>Una linterna contra el centro galáctico. Salinas Grandes, Córdoba.</p>
 						</article>
 						<article class="thumb">
-							<a href="images/fulls/10.jpg" class="image"><img src="images/thumbs/10.jpg" alt="" /></a>
-							<h2>Antártida Salvaje</h2>
-							<p>Un viaje al sur del sur.</p>
+							<a href="images/fulls/noche-02.jpg" class="image"><img src="images/thumbs/noche-02.jpg" loading="lazy" alt="Vía Láctea sobre el salar. Salinas Grandes, Córdoba." /></a>
+							<h2>Dos linternas</h2>
+							<p>Vía Láctea sobre el salar. Salinas Grandes, Córdoba.</p>
 						</article>
 						<article class="thumb">
-							<a href="images/fulls/11.jpg" class="image"><img src="images/thumbs/11.jpg" alt="" /></a>
-							<h2>Colores</h2>
-							<p>Hornocal: cerro de los 14 colores. Jujuy-Argentina</p>
+							<a href="images/fulls/noche-03.jpg" class="image"><img src="images/thumbs/noche-03.jpg" loading="lazy" alt="Vía Láctea sobre la carpa. Purmamarca, Jujuy." /></a>
+							<h2>Vivac</h2>
+							<p>Vía Láctea sobre la carpa. Purmamarca, Jujuy.</p>
 						</article>
 						<article class="thumb">
-							<a href="images/fulls/12.jpg" class="image"><img src="images/thumbs/12.jpg" alt="" /></a>
-							<h2>En movimiento</h2>
-							<p>Disfrutar el viaje .</p>
+							<a href="images/fulls/noche-04.jpg" class="image"><img src="images/thumbs/noche-04.jpg" loading="lazy" alt="Fogata entre las paredes de Los Castillos. Cafayate, Salta." /></a>
+							<h2>Los Castillos</h2>
+							<p>Fogata entre las paredes de Los Castillos. Cafayate, Salta.</p>
+						</article>
+						<article class="thumb">
+							<a href="images/fulls/noche-05.jpg" class="image"><img src="images/thumbs/noche-05.jpg" loading="lazy" alt="El sol en las manos. Cerro Uritorco, Córdoba." /></a>
+							<h2>Contraluz</h2>
+							<p>El sol en las manos. Cerro Uritorco, Córdoba.</p>
+						</article>
+						<article class="thumb">
+							<a href="images/fulls/noche-06.jpg" class="image"><img src="images/thumbs/noche-06.jpg" loading="lazy" alt="Salida de la luna. Córdoba, Argentina." /></a>
+							<h2>Luna llena</h2>
+							<p>Salida de la luna. Córdoba, Argentina.</p>
+						</article>
+
+						<!-- NORTE -->
+						<header class="serie" id="norte">
+							<h2>Norte</h2>
+							<p>Jujuy y Salta. Color de arenisca, altura y pueblos de adobe.</p>
+						</header>
+						<article class="thumb">
+							<a href="images/fulls/norte-01.jpg" class="image"><img src="images/thumbs/norte-01.jpg" loading="lazy" alt="Cerro de los catorce colores. Hornocal, Jujuy." /></a>
+							<h2>Hornocal</h2>
+							<p>Cerro de los catorce colores. Hornocal, Jujuy.</p>
+						</article>
+						<article class="thumb">
+							<a href="images/fulls/norte-02.jpg" class="image"><img src="images/thumbs/norte-02.jpg" loading="lazy" alt="Quebrada de arenisca roja. Purmamarca, Jujuy." /></a>
+							<h2>Purmamarca</h2>
+							<p>Quebrada de arenisca roja. Purmamarca, Jujuy.</p>
+						</article>
+						<article class="thumb">
+							<a href="images/fulls/norte-03.jpg" class="image"><img src="images/thumbs/norte-03.jpg" loading="lazy" alt="Mar de nubes desde el mirador. Purmamarca, Jujuy." /></a>
+							<h2>El banco</h2>
+							<p>Mar de nubes desde el mirador. Purmamarca, Jujuy.</p>
+						</article>
+						<article class="thumb">
+							<a href="images/fulls/norte-04.jpg" class="image"><img src="images/thumbs/norte-04.jpg" loading="lazy" alt="Sol de tarde detrás de la roca. Cafayate, Salta." /></a>
+							<h2>Contra el sol</h2>
+							<p>Sol de tarde detrás de la roca. Cafayate, Salta.</p>
+						</article>
+						<article class="thumb">
+							<a href="images/fulls/norte-05.jpg" class="image"><img src="images/thumbs/norte-05.jpg" loading="lazy" alt="Camino entre cerros de colores." /></a>
+							<h2>En ruta</h2>
+							<p>Camino entre cerros de colores.</p>
+						</article>
+						<article class="thumb">
+							<a href="images/fulls/norte-06.jpg" class="image"><img src="images/thumbs/norte-06.jpg" loading="lazy" alt="Calle de adobe." /></a>
+							<h2>Pueblo</h2>
+							<p>Calle de adobe.</p>
+						</article>
+
+						<!-- CÓRDOBA -->
+						<header class="serie" id="cordoba">
+							<h2>Córdoba</h2>
+							<p>Sierras, salinas y humedal. El territorio de todos los días.</p>
+						</header>
+						<article class="thumb">
+							<a href="images/fulls/cordoba-01.jpg" class="image"><img src="images/thumbs/cordoba-01.jpg" loading="lazy" alt="Salinas Grandes. Córdoba, Argentina." /></a>
+							<h2>Salinas Grandes</h2>
+							<p>Salinas Grandes. Córdoba, Argentina.</p>
+						</article>
+						<article class="thumb">
+							<a href="images/fulls/cordoba-02.jpg" class="image"><img src="images/thumbs/cordoba-02.jpg" loading="lazy" alt="Cascada entre la vegetación. La Cumbrecita, Córdoba." /></a>
+							<h2>La Cumbrecita</h2>
+							<p>Cascada entre la vegetación. La Cumbrecita, Córdoba.</p>
+						</article>
+						<article class="thumb">
+							<a href="images/fulls/cordoba-03.jpg" class="image"><img src="images/thumbs/cordoba-03.jpg" loading="lazy" alt="Puente colgante sobre el río. Pueblo Escondido, Córdoba." /></a>
+							<h2>Pueblo Escondido</h2>
+							<p>Puente colgante sobre el río. Pueblo Escondido, Córdoba.</p>
+						</article>
+						<article class="thumb">
+							<a href="images/fulls/cordoba-04.jpg" class="image"><img src="images/thumbs/cordoba-04.jpg" loading="lazy" alt="Sobre la piedra. Quebrada del Calderón, Córdoba." /></a>
+							<h2>Quebrada del Calderón</h2>
+							<p>Sobre la piedra. Quebrada del Calderón, Córdoba.</p>
+						</article>
+						<article class="thumb">
+							<a href="images/fulls/cordoba-05.jpg" class="image"><img src="images/thumbs/cordoba-05.jpg" loading="lazy" alt="Flamencos en la laguna Mar Chiquita. Ansenuza, Córdoba." /></a>
+							<h2>Ansenuza</h2>
+							<p>Flamencos en la laguna Mar Chiquita. Ansenuza, Córdoba.</p>
+						</article>
+
+						<!-- RUTAS -->
+						<header class="serie" id="rutas">
+							<h2>Rutas</h2>
+							<p>Patagonia, el delta y lo que aparece en el camino.</p>
+						</header>
+						<article class="thumb">
+							<a href="images/fulls/rutas-01.jpg" class="image"><img src="images/thumbs/rutas-01.jpg" loading="lazy" alt="Última luz sobre el macizo. El Chaltén, Santa Cruz." /></a>
+							<h2>Fitz Roy</h2>
+							<p>Última luz sobre el macizo. El Chaltén, Santa Cruz.</p>
+						</article>
+						<article class="thumb">
+							<a href="images/fulls/rutas-02.jpg" class="image"><img src="images/thumbs/rutas-02.jpg" loading="lazy" alt="Ruta de montaña. San Martín de los Andes, Neuquén." /></a>
+							<h2>San Martín de los Andes</h2>
+							<p>Ruta de montaña. San Martín de los Andes, Neuquén.</p>
+						</article>
+						<article class="thumb">
+							<a href="images/fulls/rutas-03.jpg" class="image"><img src="images/thumbs/rutas-03.jpg" loading="lazy" alt="Última luz sobre el agua. El Tigre, Buenos Aires." /></a>
+							<h2>Orilla</h2>
+							<p>Última luz sobre el agua. El Tigre, Buenos Aires.</p>
+						</article>
+						<article class="thumb">
+							<a href="images/fulls/rutas-04.jpg" class="image"><img src="images/thumbs/rutas-04.jpg" loading="lazy" alt="Ave sobre la roca." /></a>
+							<h2>Zorzal</h2>
+							<p>Ave sobre la roca.</p>
 						</article>
 					</div>
 
@@ -96,6 +330,8 @@
 						<div class="inner split">
 							<div>
 								<section>
+									<img class="retrato" src="images/sobre-mi.jpg" alt="Ezequiel Molina frente al Fitz Roy. El Chaltén, Santa Cruz." />
+									<span class="pie">El Chaltén, Santa Cruz.</span>
 									<h2>Ezequiel Molina</h2>
 									<p> Apasionado por las luces y el tiempo, encuentro en la fotografía nocturna mi forma de 
 										arte más auténtica. Inspirado por la belleza etérea de la Antártida, donde descubrí 
@@ -105,21 +341,19 @@
 								<section>
 									<h2>Seguime en:</h2>
 									<ul class="icons">
-										<li><a href="https://twitter.com/ezemoli" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 										<!--<li><a href="https://facebook.com" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li> -->
-										<li><a href="https://www.pindle.io/" class="icon brands fa-dribbble"><span class="label">Pindle</span></a></li>
 										<li><a href="https://www.instagram.com/eze_moli/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>										
 										
 										<!-- <li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li> -->
 									</ul>
 								</section>
 								<p class="copyright">
-									&copy; Design by: <a href="https://www.instagram.com/eze_moli/">ezemoli</a>.
+									&copy; ezemoli. Todos los derechos reservados.
 								</p>
 							</div>
 							<div>
 								<section>
-									<h2>Nos ponemos en contacto?</h2>
+									<h2>¿Nos ponemos en contacto?</h2>
 									<p> ezemoli.ph@gmail.com  </p>
 									 <!--  <form method="post" action="#">
 										<div class="fields">
