@@ -1,0 +1,257 @@
+<!DOCTYPE HTML>
+<!--
+	Base: Multiverse by HTML5 UP (html5up.net | @ajlkn) - licencia CCA 3.0
+	Reordenado y optimizado para ezemoli.
+-->
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<title>Mendoza — Ezequiel Molina | Fotografía</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="Alta montaña y escalada. Nieve, roca y la gente que sube." />
+		<meta name="author" content="Ezequiel Molina" />
+		<meta name="theme-color" content="#242629" />
+		<link rel="canonical" href="https://ezemoliph.github.io/mendoza.html" />
+
+		<!-- Como se ve el link al compartirlo (WhatsApp, Instagram, Facebook) -->
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="es_AR" />
+		<meta property="og:site_name" content="ezemoli" />
+		<meta property="og:title" content="Mendoza — Ezequiel Molina | Fotografía" />
+		<meta property="og:description" content="Alta montaña y escalada. Nieve, roca y la gente que sube." />
+		<meta property="og:url" content="https://ezemoliph.github.io/mendoza.html" />
+		<meta property="og:image" content="https://ezemoliph.github.io/images/portadas/mendoza.jpg" />
+		<meta property="og:image:alt" content="Mendoza" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Mendoza — Ezequiel Molina | Fotografía" />
+		<meta name="twitter:description" content="Alta montaña y escalada. Nieve, roca y la gente que sube." />
+		<meta name="twitter:image" content="https://ezemoliph.github.io/images/portadas/mendoza.jpg" />
+
+		<link rel="icon" href="favicon.ico" sizes="any" />
+		<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+		<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+		<!-- Ajustes ezemoli sobre la plantilla -->
+		<style>
+			/* ---- Bandas de grupo y encabezado de categoria ---- */
+			#main .banda {
+				-webkit-flex-basis: 100%; -ms-flex-basis: 100%; flex-basis: 100%;
+				width: 100%; padding: 4rem 2rem 1.8rem 2rem;
+				border-top: 1px solid rgba(255,255,255,0.12);
+			}
+			#main .banda:first-child { border-top: 0; padding-top: 2.75rem; }
+			#main .banda h2 {
+				font-size: 1.4rem; letter-spacing: 0.38rem; text-transform: uppercase;
+				margin: 0 0 0.5rem 0; color: #fff;
+			}
+			#main .banda p {
+				margin: 0; max-width: 46rem; font-size: 0.86rem; line-height: 1.65;
+				color: rgba(255,255,255,0.55);
+			}
+			#main .banda .volver {
+				display: inline-block; margin: 0 0 1rem 0; font-size: 0.72rem;
+				letter-spacing: 0.18rem; text-transform: uppercase;
+				color: rgba(255,255,255,0.5); border-bottom: 0;
+			}
+			#main .banda .volver:hover { color: #fff; }
+			#main .intro h1 {
+				font-size: 1.75rem; letter-spacing: 0.1rem; margin: 0 0 0.6rem 0; color: #fff;
+			}
+			#main .intro p { font-size: 0.95rem; color: rgba(255,255,255,0.62); }
+
+			/* ---- Boton de contacto ---- */
+			.wa {
+				display: inline-block; margin-top: 1.35rem; padding: 0.7rem 1.4rem;
+				border: 1px solid rgba(255,255,255,0.35);
+				font-size: 0.72rem; letter-spacing: 0.2rem; text-transform: uppercase;
+				color: rgba(255,255,255,0.85);
+			}
+			.wa:hover { background: rgba(255,255,255,0.09); color: #fff; border-color: #fff; }
+
+			/* Sin esto, una fila incompleta (5 portadas, 4 fotos) deja un hueco negro
+			   al final. Asi las ultimas se estiran y ocupan todo el ancho. */
+			#main .portada, #main .foto {
+				-webkit-flex-grow: 1; -ms-flex-positive: 1; flex-grow: 1;
+			}
+
+			/* ---- Portadas de la home: llevan a la pagina, no abren el visor ---- */
+			#main .portada > a.cover {
+				position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+				display: block; border-bottom: 0; overflow: hidden;
+			}
+			#main .portada > a.cover img {
+				width: 100%; height: 100%; object-fit: cover; display: block;
+				-moz-transition: transform 0.6s ease; -webkit-transition: transform 0.6s ease;
+				transition: transform 0.6s ease;
+			}
+			#main .portada:hover > a.cover img { transform: scale(1.045); }
+			#main .portada:after {
+				background-image: linear-gradient(to top,
+					rgba(10,17,25,0.92) 0%, rgba(10,17,25,0.58) 30%, rgba(10,17,25,0.06) 72%);
+			}
+			#main .portada > h2 {
+				bottom: 2.7rem; left: 1.75rem; font-size: 1.02rem;
+				letter-spacing: 0.2rem; text-transform: uppercase;
+			}
+			#main .portada > p {
+				display: block; position: absolute; z-index: 1; pointer-events: none;
+				bottom: 1.35rem; left: 1.75rem; right: 1.5rem; margin: 0;
+				font-size: 0.72rem; line-height: 1.35; color: rgba(255,255,255,0.72);
+			}
+
+			/* ---- Fotos dentro de una categoria ---- */
+			/* Velo inferior mas fuerte: el texto blanco tiene que leerse tambien sobre nieve */
+			#main .foto:after {
+				background-image: linear-gradient(to top,
+					rgba(10,17,25,0.88) 0%, rgba(10,17,25,0.45) 24%, rgba(10,17,25,0) 58%);
+			}
+			/* El epigrafe venia en display:none en la plantilla. Lo mostramos. */
+			#main .foto > h2 { bottom: 2.55rem; left: 1.75rem; font-size: 0.8rem; }
+			#main .foto > p {
+				display: block; position: absolute; z-index: 1; pointer-events: none;
+				bottom: 1.25rem; left: 1.75rem; right: 1.5rem; margin: 0;
+				font-size: 0.72rem; line-height: 1.35; color: rgba(255,255,255,0.72);
+			}
+
+			/* ---- Retrato en Sobre mi ---- */
+			#footer .retrato { display: block; width: 100%; max-width: 21rem; height: auto; margin: 0 0 0.6rem 0; }
+			#footer .pie { display: block; font-size: 0.72rem; color: rgba(255,255,255,0.45); margin: 0 0 1.6rem 0; }
+
+			@media screen and (max-width: 736px) {
+				#main .banda { padding: 2.6rem 1.5rem 1.3rem 1.5rem; }
+				#main .intro h1 { font-size: 1.4rem; }
+				#main .portada > h2, #main .portada > p,
+				#main .foto > h2, #main .foto > p { left: 1.25rem; }
+				#header nav ul li.oculta-movil { display: none; }
+			}
+			#main .thumb:nth-child(2) { transition-delay: 0.00s; }
+			#main .thumb:nth-child(3) { transition-delay: 0.13s; }
+			#main .thumb:nth-child(4) { transition-delay: 0.26s; }
+			#main .thumb:nth-child(5) { transition-delay: 0.39s; }
+			#main .thumb:nth-child(6) { transition-delay: 0.52s; }
+			#main .thumb:nth-child(7) { transition-delay: 0.65s; }
+			#main .thumb:nth-child(8) { transition-delay: 0.78s; }
+			#main .thumb:nth-child(9) { transition-delay: 0.91s; }
+			#main .thumb:nth-child(10) { transition-delay: 1.04s; }
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html"><strong>Ezequiel Molina</strong> · fotografía</a></h1>
+						<nav>
+							<ul>
+								<li class="oculta-movil"><a href="index.html">&larr; Portada</a></li>
+								<li><a href="#footer" class="icon solid fa-info-circle">Sobre mí</a></li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+						<header class="banda" id="mendoza">
+							<a class="volver" href="index.html">&larr; Portada</a>
+							<h2>Mendoza</h2>
+							<p>Alta montaña y escalada. Nieve, roca y la gente que sube.</p>
+						</header>
+						<article class="thumb foto">
+							<a href="images/fulls/mendoza-01.jpg" class="image"><img src="images/thumbs/mendoza-01.jpg" loading="lazy" alt="El embalse y la cordillera enmarcados. Mendoza, Argentina." /></a>
+							<h2>Desde el túnel</h2>
+							<p>El embalse y la cordillera enmarcados. Mendoza, Argentina.</p>
+						</article>
+						<article class="thumb foto">
+							<a href="images/fulls/mendoza-02.jpg" class="image"><img src="images/thumbs/mendoza-02.jpg" loading="lazy" alt="Ascenso sobre la nieve, entre la niebla. Mendoza, Argentina." /></a>
+							<h2>Subiendo</h2>
+							<p>Ascenso sobre la nieve, entre la niebla. Mendoza, Argentina.</p>
+						</article>
+						<article class="thumb foto">
+							<a href="images/fulls/mendoza-03.jpg" class="image"><img src="images/thumbs/mendoza-03.jpg" loading="lazy" alt="Cruzando la ladera nevada. Mendoza, Argentina." /></a>
+							<h2>Traversía</h2>
+							<p>Cruzando la ladera nevada. Mendoza, Argentina.</p>
+						</article>
+						<article class="thumb foto">
+							<a href="images/fulls/mendoza-04.jpg" class="image"><img src="images/thumbs/mendoza-04.jpg" loading="lazy" alt="Escalando el techo de arenisca. Mendoza, Argentina." /></a>
+							<h2>En la pared</h2>
+							<p>Escalando el techo de arenisca. Mendoza, Argentina.</p>
+						</article>
+						<article class="thumb foto">
+							<a href="images/fulls/mendoza-05.jpg" class="image"><img src="images/thumbs/mendoza-05.jpg" loading="lazy" alt="En la vía, sobre la roca. Mendoza, Argentina." /></a>
+							<h2>Reunión</h2>
+							<p>En la vía, sobre la roca. Mendoza, Argentina.</p>
+						</article>
+						<article class="thumb foto">
+							<a href="images/fulls/mendoza-06.jpg" class="image"><img src="images/thumbs/mendoza-06.jpg" loading="lazy" alt="Antes de arrancar la escalada. Mendoza, Argentina." /></a>
+							<h2>Mirando la vía</h2>
+							<p>Antes de arrancar la escalada. Mendoza, Argentina.</p>
+						</article>
+						<article class="thumb foto">
+							<a href="images/fulls/mendoza-07.jpg" class="image"><img src="images/thumbs/mendoza-07.jpg" loading="lazy" alt="Mochila y piolet sobre la nieve. Mendoza, Argentina." /></a>
+							<h2>El equipo</h2>
+							<p>Mochila y piolet sobre la nieve. Mendoza, Argentina.</p>
+						</article>
+						<article class="thumb foto">
+							<a href="images/fulls/mendoza-08.jpg" class="image"><img src="images/thumbs/mendoza-08.jpg" loading="lazy" alt="Cordillera de punta a punta. Mendoza, Argentina." /></a>
+							<h2>El valle</h2>
+							<p>Cordillera de punta a punta. Mendoza, Argentina.</p>
+						</article>
+						<article class="thumb foto">
+							<a href="images/fulls/mendoza-09.jpg" class="image"><img src="images/thumbs/mendoza-09.jpg" loading="lazy" alt="Un pájaro sobre el murete, con el agua atrás. Mendoza, Argentina." /></a>
+							<h2>Amarillo</h2>
+							<p>Un pájaro sobre el murete, con el agua atrás. Mendoza, Argentina.</p>
+						</article>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer" class="panel">
+						<div class="inner split">
+							<div>
+								<section>
+									<img class="retrato" src="images/sobre-mi.jpg" loading="lazy" alt="Ezequiel Molina frente al Fitz Roy. El Chaltén, Santa Cruz." />
+									<span class="pie">El Chaltén, Santa Cruz.</span>
+									<h2>Ezequiel Molina</h2>
+									<p>Apasionado por las luces y el tiempo, encuentro en la fotografía nocturna mi forma de
+										arte más auténtica. Inspirado por la belleza etérea de la Antártida, donde descubrí
+										la magia de las noches eternas, capturo la conjunción perfecta de oscuridad y luz, creando
+										imágenes que trascienden el momento; al menos eso intento...</p>
+									<p>Revelo todo en darktable, software libre. El color es mío, no de un preset.</p>
+								</section>
+								<section>
+									<h2>Seguime en:</h2>
+									<ul class="icons">
+										<li><a href="https://www.instagram.com/eze_moli/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+									</ul>
+								</section>
+								<p class="copyright">
+									&copy; Ezequiel Molina. Todos los derechos reservados.
+								</p>
+							</div>
+							<div>
+								<section>
+									<h2>¿Nos ponemos en contacto?</h2>
+									<p>ezemoli.ph@gmail.com</p>
+									<a class="wa" href="https://wa.me/5493512801473?text=Hola%20Eze!%20Vi%20tu%20p%C3%A1gina%20y%20quer%C3%ADa%20consultarte." target="_blank" rel="noopener">Escribime por WhatsApp</a>
+								</section>
+							</div>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
