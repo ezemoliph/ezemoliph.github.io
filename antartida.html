@@ -78,6 +78,12 @@
 				-webkit-flex-grow: 1; -ms-flex-positive: 1; flex-grow: 1;
 			}
 
+			/* Los trabajos van de a dos por fila. La plantilla da 3 o 4 columnas segun
+			   el ancho; abajo de 1280px ya son 2 sola, asi que solo pisamos arriba. */
+			@media screen and (min-width: 1281px) {
+				#main .portada.encargo { width: 50%; }
+			}
+
 			/* ---- Portadas de la home: llevan a la pagina, no abren el visor ---- */
 			#main .portada > a.cover {
 				position: absolute; top: 0; left: 0; width: 100%; height: 100%;

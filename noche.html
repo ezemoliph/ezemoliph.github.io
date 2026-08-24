@@ -8,7 +8,7 @@
 		<meta charset="utf-8" />
 		<title>Noche — Ezequiel Molina | Fotografía</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="description" content="No es un lugar, es una manera de mirar. La Vía Láctea sobre el salar, la fogata en la quebrada, la luna saliendo en las sierras." />
+		<meta name="description" content="No es un lugar, es una manera de mirar. La Vía Láctea sobre el salar, la fogata en la quebrada, la Alhambra en hora azul." />
 		<meta name="author" content="Ezequiel Molina" />
 		<meta name="theme-color" content="#242629" />
 		<link rel="canonical" href="https://ezemoliph.github.io/noche.html" />
@@ -18,13 +18,13 @@
 		<meta property="og:locale" content="es_AR" />
 		<meta property="og:site_name" content="ezemoli" />
 		<meta property="og:title" content="Noche — Ezequiel Molina | Fotografía" />
-		<meta property="og:description" content="No es un lugar, es una manera de mirar. La Vía Láctea sobre el salar, la fogata en la quebrada, la luna saliendo en las sierras." />
+		<meta property="og:description" content="No es un lugar, es una manera de mirar. La Vía Láctea sobre el salar, la fogata en la quebrada, la Alhambra en hora azul." />
 		<meta property="og:url" content="https://ezemoliph.github.io/noche.html" />
 		<meta property="og:image" content="https://ezemoliph.github.io/images/portadas/noche.jpg" />
 		<meta property="og:image:alt" content="Noche" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content="Noche — Ezequiel Molina | Fotografía" />
-		<meta name="twitter:description" content="No es un lugar, es una manera de mirar. La Vía Láctea sobre el salar, la fogata en la quebrada, la luna saliendo en las sierras." />
+		<meta name="twitter:description" content="No es un lugar, es una manera de mirar. La Vía Láctea sobre el salar, la fogata en la quebrada, la Alhambra en hora azul." />
 		<meta name="twitter:image" content="https://ezemoliph.github.io/images/portadas/noche.jpg" />
 
 		<link rel="icon" href="favicon.ico" sizes="any" />
@@ -76,6 +76,12 @@
 			   al final. Asi las ultimas se estiran y ocupan todo el ancho. */
 			#main .portada, #main .foto {
 				-webkit-flex-grow: 1; -ms-flex-positive: 1; flex-grow: 1;
+			}
+
+			/* Los trabajos van de a dos por fila. La plantilla da 3 o 4 columnas segun
+			   el ancho; abajo de 1280px ya son 2 sola, asi que solo pisamos arriba. */
+			@media screen and (min-width: 1281px) {
+				#main .portada.encargo { width: 50%; }
 			}
 
 			/* ---- Portadas de la home: llevan a la pagina, no abren el visor ---- */
@@ -141,6 +147,7 @@
 			#main .thumb:nth-child(12) { transition-delay: 1.30s; }
 			#main .thumb:nth-child(13) { transition-delay: 1.43s; }
 			#main .thumb:nth-child(14) { transition-delay: 1.56s; }
+			#main .thumb:nth-child(15) { transition-delay: 1.69s; }
 		</style>
 	</head>
 	<body class="is-preload">
@@ -164,7 +171,7 @@
 						<header class="banda" id="noche">
 							<a class="volver" href="index.html">&larr; Portada</a>
 							<h2>Noche</h2>
-							<p>No es un lugar, es una manera de mirar. La Vía Láctea sobre el salar, la fogata en la quebrada, la luna saliendo en las sierras.</p>
+							<p>No es un lugar, es una manera de mirar. La Vía Láctea sobre el salar, la fogata en la quebrada, la Alhambra en hora azul.</p>
 						</header>
 						<article class="thumb foto">
 							<a href="images/fulls/noche-03.jpg" class="image"><img src="images/thumbs/noche-03.jpg" loading="lazy" alt="Vía Láctea sobre la carpa. Purmamarca, Jujuy." /></a>
@@ -215,6 +222,11 @@
 							<a href="images/fulls/noche-13.jpg" class="image"><img src="images/thumbs/noche-13.jpg" loading="lazy" alt="Dos personas sentadas bajo la Vía Láctea." /></a>
 							<h2>Compañía</h2>
 							<p>Dos personas sentadas bajo la Vía Láctea.</p>
+						</article>
+						<article class="thumb foto">
+							<a href="images/fulls/noche-14.jpg" class="image"><img src="images/thumbs/noche-14.jpg" loading="lazy" alt="Hora azul sobre la Alhambra. Granada, España." /></a>
+							<h2>La Alhambra</h2>
+							<p>Hora azul sobre la Alhambra. Granada, España.</p>
 						</article>
 						<article class="thumb foto">
 							<a href="images/fulls/noche-04.jpg" class="image"><img src="images/thumbs/noche-04.jpg" loading="lazy" alt="Fogata entre las paredes de Los Castillos. Cafayate, Salta." /></a>

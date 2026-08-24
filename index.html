@@ -78,6 +78,12 @@
 				-webkit-flex-grow: 1; -ms-flex-positive: 1; flex-grow: 1;
 			}
 
+			/* Los trabajos van de a dos por fila. La plantilla da 3 o 4 columnas segun
+			   el ancho; abajo de 1280px ya son 2 sola, asi que solo pisamos arriba. */
+			@media screen and (min-width: 1281px) {
+				#main .portada.encargo { width: 50%; }
+			}
+
 			/* ---- Portadas de la home: llevan a la pagina, no abren el visor ---- */
 			#main .portada > a.cover {
 				position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -135,10 +141,11 @@
 			#main .thumb:nth-child(7) { transition-delay: 0.52s; }
 			#main .thumb:nth-child(8) { transition-delay: 0.65s; }
 			#main .thumb:nth-child(9) { transition-delay: 0.78s; }
-			#main .thumb:nth-child(11) { transition-delay: 0.91s; }
+			#main .thumb:nth-child(10) { transition-delay: 0.91s; }
 			#main .thumb:nth-child(12) { transition-delay: 1.04s; }
 			#main .thumb:nth-child(13) { transition-delay: 1.17s; }
 			#main .thumb:nth-child(14) { transition-delay: 1.30s; }
+			#main .thumb:nth-child(15) { transition-delay: 1.43s; }
 		</style>
 
 		<script type="application/ld+json">
@@ -193,7 +200,7 @@
 						<article class="thumb portada">
 							<a href="noche.html" class="cover"><img src="images/portadas/noche.jpg" alt="Noche" /></a>
 							<h2>Noche</h2>
-							<p>Vía Láctea, fogatas y luna · 13 fotos</p>
+							<p>Vía Láctea, fogatas y luna · 14 fotos</p>
 						</article>
 						<article class="thumb portada">
 							<a href="cordoba.html" class="cover"><img src="images/portadas/cordoba.jpg" alt="Córdoba" /></a>
@@ -216,6 +223,11 @@
 							<p>Andes y altura, 2025 · 10 fotos</p>
 						</article>
 						<article class="thumb portada">
+							<a href="europa.html" class="cover"><img src="images/portadas/europa.jpg" alt="Europa" /></a>
+							<h2>Europa</h2>
+							<p>España y Portugal, 2025 · 16 fotos</p>
+						</article>
+						<article class="thumb portada">
 							<a href="mendoza.html" class="cover"><img src="images/portadas/mendoza.jpg" alt="Mendoza" /></a>
 							<h2>Mendoza</h2>
 							<p>Alta montaña y escalada · 9 fotos</p>
@@ -226,22 +238,22 @@
 							<p>Coberturas por encargo. Salidas de montaña, graduaciones, celebraciones y alojamientos.</p>
 							<a class="wa" href="https://wa.me/5493512801473?text=Hola%20Eze!%20Vi%20tu%20p%C3%A1gina%20y%20quer%C3%ADa%20consultarte." target="_blank" rel="noopener">Consultar por WhatsApp</a>
 						</header>
-						<article class="thumb portada">
+						<article class="thumb portada encargo">
 							<a href="aventuras.html" class="cover"><img src="images/portadas/aventuras.jpg" alt="Aventuras" /></a>
 							<h2>Aventuras</h2>
 							<p>Trekking en las sierras · 8 fotos</p>
 						</article>
-						<article class="thumb portada">
+						<article class="thumb portada encargo">
 							<a href="graduaciones.html" class="cover"><img src="images/portadas/graduaciones.jpg" alt="Graduaciones" /></a>
 							<h2>Graduaciones</h2>
 							<p>El acto y el after · 10 fotos</p>
 						</article>
-						<article class="thumb portada">
+						<article class="thumb portada encargo">
 							<a href="alojamientos.html" class="cover"><img src="images/portadas/alojamientos.jpg" alt="Alojamientos" /></a>
 							<h2>Alojamientos</h2>
 							<p>Hotelería y gastronomía · 8 fotos</p>
 						</article>
-						<article class="thumb portada">
+						<article class="thumb portada encargo">
 							<a href="celebraciones.html" class="cover"><img src="images/portadas/celebraciones.jpg" alt="Celebraciones" /></a>
 							<h2>Celebraciones</h2>
 							<p>Cumpleaños y aniversarios · 10 fotos</p>
