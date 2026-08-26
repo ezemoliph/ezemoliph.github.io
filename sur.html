@@ -71,6 +71,7 @@
 				color: rgba(255,255,255,0.85);
 			}
 			.wa:hover { background: rgba(255,255,255,0.09); color: #fff; border-color: #fff; }
+			.wa .icon { margin-right: 0.6rem; font-size: 1.15em; vertical-align: -0.08em; }
 
 			/* Sin esto, una fila incompleta (5 portadas, 4 fotos) deja un hueco negro
 			   al final. Asi las ultimas se estiran y ocupan todo el ancho. */
@@ -110,17 +111,32 @@
 			}
 
 			/* ---- Fotos dentro de una categoria ---- */
-			/* Velo inferior mas fuerte: el texto blanco tiene que leerse tambien sobre nieve */
+			/* Velo inferior: el nombre blanco tiene que leerse tambien sobre nieve.
+			   Ahora abajo va una sola linea, asi que el velo puede ser mas corto. */
 			#main .foto:after {
 				background-image: linear-gradient(to top,
-					rgba(10,17,25,0.88) 0%, rgba(10,17,25,0.45) 24%, rgba(10,17,25,0) 58%);
+					rgba(10,17,25,0.8) 0%, rgba(10,17,25,0.34) 20%, rgba(10,17,25,0) 48%);
 			}
-			/* El epigrafe venia en display:none en la plantilla. Lo mostramos. */
-			#main .foto > h2 { bottom: 2.55rem; left: 1.75rem; font-size: 0.8rem; }
-			#main .foto > p {
-				display: block; position: absolute; z-index: 1; pointer-events: none;
-				bottom: 1.25rem; left: 1.75rem; right: 1.5rem; margin: 0;
-				font-size: 0.72rem; line-height: 1.35; color: rgba(255,255,255,0.72);
+			/* En la grilla va solo el nombre. El epigrafe sigue en el HTML pero
+			   oculto: de ahi lo levanta el visor, que si muestra los dos. */
+			#main .foto > h2 { bottom: 1.35rem; left: 1.75rem; font-size: 0.8rem; }
+			#main .foto > p { display: none; }
+			/* Sin texto encima, el velo solo ensucia la foto. */
+			#main .foto.muda:after { background-image: none; }
+
+			/* ---- Visor: nombre y epigrafe DEBAJO de la foto, no encima ---- */
+			.poptrox-popup .caption {
+				position: static; width: auto; background: none; text-align: left;
+				padding: 0.9rem 1.15rem 1rem 1.15rem;
+			}
+			.poptrox-popup .caption:empty { display: none !important; padding: 0; }
+			.poptrox-popup .caption h2 {
+				margin: 0 0 0.3rem 0; font-size: 0.78rem; letter-spacing: 0.2rem;
+				text-transform: uppercase; color: #fff;
+			}
+			.poptrox-popup .caption p {
+				margin: 0; font-size: 0.76rem; line-height: 1.5;
+				color: rgba(255,255,255,0.7);
 			}
 
 			/* ---- Retrato en Sobre mi ---- */
@@ -133,6 +149,22 @@
 				#main .portada > h2, #main .portada > p,
 				#main .foto > h2, #main .foto > p { left: 1.25rem; }
 				#header nav ul li.oculta-movil { display: none; }
+
+				/* En dos lineas se monta sobre el titulo: una sola, con puntos. */
+				#main .portada > p {
+					white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+				}
+
+				/* La plantilla escondia epigrafe, flechas y cruz en el celular.
+				   Los tres vuelven: sin flechas no se puede pasar de foto. */
+				.poptrox-popup .caption { display: block !important; }
+				.poptrox-popup .caption:empty { display: none !important; }
+				.poptrox-popup .closer,
+				.poptrox-popup .nav-previous,
+				.poptrox-popup .nav-next { display: block !important; }
+				.poptrox-popup .nav-previous,
+				.poptrox-popup .nav-next { background-size: 2.8em; }
+				.poptrox-popup .closer { background-size: 2.2em; height: 4em; width: 4em; }
 			}
 			#main .thumb:nth-child(2) { transition-delay: 0.00s; }
 			#main .thumb:nth-child(3) { transition-delay: 0.13s; }
@@ -265,6 +297,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/ezemoli.js"></script>
 
 	</body>
 </html>

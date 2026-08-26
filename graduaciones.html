@@ -71,6 +71,7 @@
 				color: rgba(255,255,255,0.85);
 			}
 			.wa:hover { background: rgba(255,255,255,0.09); color: #fff; border-color: #fff; }
+			.wa .icon { margin-right: 0.6rem; font-size: 1.15em; vertical-align: -0.08em; }
 
 			/* Sin esto, una fila incompleta (5 portadas, 4 fotos) deja un hueco negro
 			   al final. Asi las ultimas se estiran y ocupan todo el ancho. */
@@ -110,17 +111,32 @@
 			}
 
 			/* ---- Fotos dentro de una categoria ---- */
-			/* Velo inferior mas fuerte: el texto blanco tiene que leerse tambien sobre nieve */
+			/* Velo inferior: el nombre blanco tiene que leerse tambien sobre nieve.
+			   Ahora abajo va una sola linea, asi que el velo puede ser mas corto. */
 			#main .foto:after {
 				background-image: linear-gradient(to top,
-					rgba(10,17,25,0.88) 0%, rgba(10,17,25,0.45) 24%, rgba(10,17,25,0) 58%);
+					rgba(10,17,25,0.8) 0%, rgba(10,17,25,0.34) 20%, rgba(10,17,25,0) 48%);
 			}
-			/* El epigrafe venia en display:none en la plantilla. Lo mostramos. */
-			#main .foto > h2 { bottom: 2.55rem; left: 1.75rem; font-size: 0.8rem; }
-			#main .foto > p {
-				display: block; position: absolute; z-index: 1; pointer-events: none;
-				bottom: 1.25rem; left: 1.75rem; right: 1.5rem; margin: 0;
-				font-size: 0.72rem; line-height: 1.35; color: rgba(255,255,255,0.72);
+			/* En la grilla va solo el nombre. El epigrafe sigue en el HTML pero
+			   oculto: de ahi lo levanta el visor, que si muestra los dos. */
+			#main .foto > h2 { bottom: 1.35rem; left: 1.75rem; font-size: 0.8rem; }
+			#main .foto > p { display: none; }
+			/* Sin texto encima, el velo solo ensucia la foto. */
+			#main .foto.muda:after { background-image: none; }
+
+			/* ---- Visor: nombre y epigrafe DEBAJO de la foto, no encima ---- */
+			.poptrox-popup .caption {
+				position: static; width: auto; background: none; text-align: left;
+				padding: 0.9rem 1.15rem 1rem 1.15rem;
+			}
+			.poptrox-popup .caption:empty { display: none !important; padding: 0; }
+			.poptrox-popup .caption h2 {
+				margin: 0 0 0.3rem 0; font-size: 0.78rem; letter-spacing: 0.2rem;
+				text-transform: uppercase; color: #fff;
+			}
+			.poptrox-popup .caption p {
+				margin: 0; font-size: 0.76rem; line-height: 1.5;
+				color: rgba(255,255,255,0.7);
 			}
 
 			/* ---- Retrato en Sobre mi ---- */
@@ -133,6 +149,22 @@
 				#main .portada > h2, #main .portada > p,
 				#main .foto > h2, #main .foto > p { left: 1.25rem; }
 				#header nav ul li.oculta-movil { display: none; }
+
+				/* En dos lineas se monta sobre el titulo: una sola, con puntos. */
+				#main .portada > p {
+					white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+				}
+
+				/* La plantilla escondia epigrafe, flechas y cruz en el celular.
+				   Los tres vuelven: sin flechas no se puede pasar de foto. */
+				.poptrox-popup .caption { display: block !important; }
+				.poptrox-popup .caption:empty { display: none !important; }
+				.poptrox-popup .closer,
+				.poptrox-popup .nav-previous,
+				.poptrox-popup .nav-next { display: block !important; }
+				.poptrox-popup .nav-previous,
+				.poptrox-popup .nav-next { background-size: 2.8em; }
+				.poptrox-popup .closer { background-size: 2.2em; height: 4em; width: 4em; }
 			}
 			#main .thumb:nth-child(2) { transition-delay: 0.00s; }
 			#main .thumb:nth-child(3) { transition-delay: 0.13s; }
@@ -180,105 +212,65 @@
 							<p>El día que te recibís: el acto, el diploma y todo lo que viene después.</p>
 							<a class="wa" href="https://wa.me/5493512801473?text=Hola%20Eze!%20Vi%20tu%20p%C3%A1gina%20y%20quer%C3%ADa%20consultarte." target="_blank" rel="noopener">Consultar por WhatsApp</a>
 						</header>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/graduaciones-01.jpg" class="image"><img src="images/thumbs/graduaciones-01.jpg" loading="lazy" alt="Humo de color, recién recibida. Córdoba, Argentina." /></a>
-							<h2>La bengala</h2>
-							<p>Humo de color, recién recibida. Córdoba, Argentina.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/graduaciones-16.jpg" class="image"><img src="images/thumbs/graduaciones-16.jpg" loading="lazy" alt="La bengala en la puerta de la facultad. Córdoba, Argentina." /></a>
-							<h2>Humo rosa</h2>
-							<p>La bengala en la puerta de la facultad. Córdoba, Argentina.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/graduaciones-02.jpg" class="image"><img src="images/thumbs/graduaciones-02.jpg" loading="lazy" alt="Con el título, frente a la facultad. Córdoba, Argentina." /></a>
-							<h2>El diploma</h2>
-							<p>Con el título, frente a la facultad. Córdoba, Argentina.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/graduaciones-14.jpg" class="image"><img src="images/thumbs/graduaciones-14.jpg" loading="lazy" alt="El título en alto, frente a la facultad. Córdoba, Argentina." /></a>
-							<h2>En alto</h2>
-							<p>El título en alto, frente a la facultad. Córdoba, Argentina.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/graduaciones-13.jpg" class="image"><img src="images/thumbs/graduaciones-13.jpg" loading="lazy" alt="Con el título, en la vereda. Córdoba, Argentina." /></a>
-							<h2>A la salida del acto</h2>
-							<p>Con el título, en la vereda. Córdoba, Argentina.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/graduaciones-05.jpg" class="image"><img src="images/thumbs/graduaciones-05.jpg" loading="lazy" alt="El título, con los que estuvieron atrás. Córdoba, Argentina." /></a>
-							<h2>Los padres</h2>
-							<p>El título, con los que estuvieron atrás. Córdoba, Argentina.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/graduaciones-08.jpg" class="image"><img src="images/thumbs/graduaciones-08.jpg" loading="lazy" alt="Abrazo en el hall, después de la entrega. Córdoba, Argentina." /></a>
-							<h2>En el acto</h2>
-							<p>Abrazo en el hall, después de la entrega. Córdoba, Argentina.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/graduaciones-03.jpg" class="image"><img src="images/thumbs/graduaciones-03.jpg" loading="lazy" alt="Cubierta de pintura, a la salida. Córdoba, Argentina." /></a>
-							<h2>El after</h2>
-							<p>Cubierta de pintura, a la salida. Córdoba, Argentina.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/graduaciones-12.jpg" class="image"><img src="images/thumbs/graduaciones-12.jpg" loading="lazy" alt="Después del baño de pintura. Córdoba, Argentina." /></a>
-							<h2>Pintada</h2>
-							<p>Después del baño de pintura. Córdoba, Argentina.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/graduaciones-06.jpg" class="image"><img src="images/thumbs/graduaciones-06.jpg" loading="lazy" alt="La cara del día que te recibís. Córdoba, Argentina." /></a>
-							<h2>Retrato</h2>
-							<p>La cara del día que te recibís. Córdoba, Argentina.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/graduaciones-18.jpg" class="image"><img src="images/thumbs/graduaciones-18.jpg" loading="lazy" alt="Parte del ritual de la recibida. Córdoba, Argentina." /></a>
-							<h2>La máscara</h2>
-							<p>Parte del ritual de la recibida. Córdoba, Argentina.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/graduaciones-04.jpg" class="image"><img src="images/thumbs/graduaciones-04.jpg" loading="lazy" alt="Con la familia, a la salida. Córdoba, Argentina." /></a>
-							<h2>El abrazo</h2>
-							<p>Con la familia, a la salida. Córdoba, Argentina.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/graduaciones-11.jpg" class="image"><img src="images/thumbs/graduaciones-11.jpg" loading="lazy" alt="Con las flores, a la salida. Córdoba, Argentina." /></a>
-							<h2>El ramo</h2>
-							<p>Con las flores, a la salida. Córdoba, Argentina.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/graduaciones-15.jpg" class="image"><img src="images/thumbs/graduaciones-15.jpg" loading="lazy" alt="Con el cartel que le prepararon. Córdoba, Argentina." /></a>
-							<h2>El marco</h2>
-							<p>Con el cartel que le prepararon. Córdoba, Argentina.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/graduaciones-19.jpg" class="image"><img src="images/thumbs/graduaciones-19.jpg" loading="lazy" alt="Los carteles y el chanchito. Córdoba, Argentina." /></a>
-							<h2>La piñata</h2>
-							<p>Los carteles y el chanchito. Córdoba, Argentina.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/graduaciones-07.jpg" class="image"><img src="images/thumbs/graduaciones-07.jpg" loading="lazy" alt="Las amigas y los carteles. Córdoba, Argentina." /></a>
-							<h2>Los carteles</h2>
-							<p>Las amigas y los carteles. Córdoba, Argentina.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/graduaciones-17.jpg" class="image"><img src="images/thumbs/graduaciones-17.jpg" loading="lazy" alt="Todos afuera, con el cartel. Córdoba, Argentina." /></a>
-							<h2>Los que la esperaron</h2>
-							<p>Todos afuera, con el cartel. Córdoba, Argentina.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/graduaciones-09.jpg" class="image"><img src="images/thumbs/graduaciones-09.jpg" loading="lazy" alt="Toda la promoción. Córdoba, Argentina." /></a>
-							<h2>La camada</h2>
-							<p>Toda la promoción. Córdoba, Argentina.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/graduaciones-20.jpg" class="image"><img src="images/thumbs/graduaciones-20.jpg" loading="lazy" alt="El festejo sigue en otro lado. Córdoba, Argentina." /></a>
-							<h2>Todavía con pintura</h2>
-							<p>El festejo sigue en otro lado. Córdoba, Argentina.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/graduaciones-10.jpg" class="image"><img src="images/thumbs/graduaciones-10.jpg" loading="lazy" alt="En la caja de la camioneta, rumbo al festejo. Córdoba, Argentina." /></a>
-							<h2>La caravana</h2>
-							<p>En la caja de la camioneta, rumbo al festejo. Córdoba, Argentina.</p>
 						</article>
 					</div>
 
@@ -326,6 +318,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/ezemoli.js"></script>
 
 	</body>
 </html>

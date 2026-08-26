@@ -71,6 +71,7 @@
 				color: rgba(255,255,255,0.85);
 			}
 			.wa:hover { background: rgba(255,255,255,0.09); color: #fff; border-color: #fff; }
+			.wa .icon { margin-right: 0.6rem; font-size: 1.15em; vertical-align: -0.08em; }
 
 			/* Sin esto, una fila incompleta (5 portadas, 4 fotos) deja un hueco negro
 			   al final. Asi las ultimas se estiran y ocupan todo el ancho. */
@@ -110,17 +111,32 @@
 			}
 
 			/* ---- Fotos dentro de una categoria ---- */
-			/* Velo inferior mas fuerte: el texto blanco tiene que leerse tambien sobre nieve */
+			/* Velo inferior: el nombre blanco tiene que leerse tambien sobre nieve.
+			   Ahora abajo va una sola linea, asi que el velo puede ser mas corto. */
 			#main .foto:after {
 				background-image: linear-gradient(to top,
-					rgba(10,17,25,0.88) 0%, rgba(10,17,25,0.45) 24%, rgba(10,17,25,0) 58%);
+					rgba(10,17,25,0.8) 0%, rgba(10,17,25,0.34) 20%, rgba(10,17,25,0) 48%);
 			}
-			/* El epigrafe venia en display:none en la plantilla. Lo mostramos. */
-			#main .foto > h2 { bottom: 2.55rem; left: 1.75rem; font-size: 0.8rem; }
-			#main .foto > p {
-				display: block; position: absolute; z-index: 1; pointer-events: none;
-				bottom: 1.25rem; left: 1.75rem; right: 1.5rem; margin: 0;
-				font-size: 0.72rem; line-height: 1.35; color: rgba(255,255,255,0.72);
+			/* En la grilla va solo el nombre. El epigrafe sigue en el HTML pero
+			   oculto: de ahi lo levanta el visor, que si muestra los dos. */
+			#main .foto > h2 { bottom: 1.35rem; left: 1.75rem; font-size: 0.8rem; }
+			#main .foto > p { display: none; }
+			/* Sin texto encima, el velo solo ensucia la foto. */
+			#main .foto.muda:after { background-image: none; }
+
+			/* ---- Visor: nombre y epigrafe DEBAJO de la foto, no encima ---- */
+			.poptrox-popup .caption {
+				position: static; width: auto; background: none; text-align: left;
+				padding: 0.9rem 1.15rem 1rem 1.15rem;
+			}
+			.poptrox-popup .caption:empty { display: none !important; padding: 0; }
+			.poptrox-popup .caption h2 {
+				margin: 0 0 0.3rem 0; font-size: 0.78rem; letter-spacing: 0.2rem;
+				text-transform: uppercase; color: #fff;
+			}
+			.poptrox-popup .caption p {
+				margin: 0; font-size: 0.76rem; line-height: 1.5;
+				color: rgba(255,255,255,0.7);
 			}
 
 			/* ---- Retrato en Sobre mi ---- */
@@ -133,6 +149,22 @@
 				#main .portada > h2, #main .portada > p,
 				#main .foto > h2, #main .foto > p { left: 1.25rem; }
 				#header nav ul li.oculta-movil { display: none; }
+
+				/* En dos lineas se monta sobre el titulo: una sola, con puntos. */
+				#main .portada > p {
+					white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+				}
+
+				/* La plantilla escondia epigrafe, flechas y cruz en el celular.
+				   Los tres vuelven: sin flechas no se puede pasar de foto. */
+				.poptrox-popup .caption { display: block !important; }
+				.poptrox-popup .caption:empty { display: none !important; }
+				.poptrox-popup .closer,
+				.poptrox-popup .nav-previous,
+				.poptrox-popup .nav-next { display: block !important; }
+				.poptrox-popup .nav-previous,
+				.poptrox-popup .nav-next { background-size: 2.8em; }
+				.poptrox-popup .closer { background-size: 2.2em; height: 4em; width: 4em; }
 			}
 			#main .thumb:nth-child(2) { transition-delay: 0.00s; }
 			#main .thumb:nth-child(3) { transition-delay: 0.13s; }
@@ -180,105 +212,65 @@
 							<p>Cumpleaños y aniversarios en familia. Jardines, mesas largas y el final del día.</p>
 							<a class="wa" href="https://wa.me/5493512801473?text=Hola%20Eze!%20Vi%20tu%20p%C3%A1gina%20y%20quer%C3%ADa%20consultarte." target="_blank" rel="noopener">Consultar por WhatsApp</a>
 						</header>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/celebraciones-10.jpg" class="image"><img src="images/thumbs/celebraciones-10.jpg" loading="lazy" alt="Retrato de momentos compartidos." /></a>
-							<h2>Los amigos</h2>
-							<p>Retrato de momentos compartidos.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/celebraciones-01.jpg" class="image"><img src="images/thumbs/celebraciones-01.jpg" loading="lazy" alt="Todos alrededor de la mesa, bajo los árboles." /></a>
-							<h2>La mesa larga</h2>
-							<p>Todos alrededor de la mesa, bajo los árboles.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/celebraciones-02.jpg" class="image"><img src="images/thumbs/celebraciones-02.jpg" loading="lazy" alt="Las velitas y los nietos." /></a>
-							<h2>Setenta</h2>
-							<p>Las velitas y los nietos.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/celebraciones-03.jpg" class="image"><img src="images/thumbs/celebraciones-03.jpg" loading="lazy" alt="Alguien filma la torta y los chicos aparecen adentro del teléfono." /></a>
-							<h2>En la pantalla</h2>
-							<p>Alguien filma la torta y los chicos aparecen adentro del teléfono.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/celebraciones-04.jpg" class="image"><img src="images/thumbs/celebraciones-04.jpg" loading="lazy" alt="Frente a la torta de chocolate." /></a>
-							<h2>El cumpleañero</h2>
-							<p>Frente a la torta de chocolate.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/celebraciones-09.jpg" class="image"><img src="images/thumbs/celebraciones-09.jpg" loading="lazy" alt="Mirando las fotos, apretadas en el sillón." /></a>
-							<h2>Todas juntas</h2>
-							<p>Mirando las fotos, apretadas en el sillón.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/celebraciones-08.jpg" class="image"><img src="images/thumbs/celebraciones-08.jpg" loading="lazy" alt="Entrando al jardín con el ramo." /></a>
-							<h2>Las flores</h2>
-							<p>Entrando al jardín con el ramo.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/celebraciones-15.jpg" class="image"><img src="images/thumbs/celebraciones-15.jpg" loading="lazy" alt="Los anfitriones reciben a los invitados." /></a>
-							<h2>Bienvenida</h2>
-							<p>Los anfitriones reciben a los invitados.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/celebraciones-05.jpg" class="image"><img src="images/thumbs/celebraciones-05.jpg" loading="lazy" alt="Bajo el arco, en el jardín." /></a>
-							<h2>Los festejados</h2>
-							<p>Bajo el arco, en el jardín.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/celebraciones-17.jpg" class="image"><img src="images/thumbs/celebraciones-17.jpg" loading="lazy" alt="Posando entre las telas." /></a>
-							<h2>En el arco</h2>
-							<p>Posando entre las telas.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/celebraciones-18.jpg" class="image"><img src="images/thumbs/celebraciones-18.jpg" loading="lazy" alt="Un momento aparte, en el fondo." /></a>
-							<h2>Los dos</h2>
-							<p>Un momento aparte, en el fondo.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/celebraciones-06.jpg" class="image"><img src="images/thumbs/celebraciones-06.jpg" loading="lazy" alt="El arco armado antes de que llegue la gente." /></a>
-							<h2>La ambientación</h2>
-							<p>El arco armado antes de que llegue la gente.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/celebraciones-19.jpg" class="image"><img src="images/thumbs/celebraciones-19.jpg" loading="lazy" alt="Los sillones y las mesas bajas, junto a la pileta." /></a>
-							<h2>El estar</h2>
-							<p>Los sillones y las mesas bajas, junto a la pileta.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/celebraciones-16.jpg" class="image"><img src="images/thumbs/celebraciones-16.jpg" loading="lazy" alt="El salón al aire libre, ya con gente." /></a>
-							<h2>La carpa</h2>
-							<p>El salón al aire libre, ya con gente.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/celebraciones-20.jpg" class="image"><img src="images/thumbs/celebraciones-20.jpg" loading="lazy" alt="Fiambres y pan, sobre la mesa." /></a>
-							<h2>La picada</h2>
-							<p>Fiambres y pan, sobre la mesa.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/celebraciones-07.jpg" class="image"><img src="images/thumbs/celebraciones-07.jpg" loading="lazy" alt="Los chicos y el inflable." /></a>
-							<h2>El castillo</h2>
-							<p>Los chicos y el inflable.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/celebraciones-11.jpg" class="image"><img src="images/thumbs/celebraciones-11.jpg" loading="lazy" alt="Trepando al castillo inflable." /></a>
-							<h2>Entrando</h2>
-							<p>Trepando al castillo inflable.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/celebraciones-13.jpg" class="image"><img src="images/thumbs/celebraciones-13.jpg" loading="lazy" alt="Los brazos arriba, en pleno juego." /></a>
-							<h2>Festejo</h2>
-							<p>Los brazos arriba, en pleno juego.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/celebraciones-12.jpg" class="image"><img src="images/thumbs/celebraciones-12.jpg" loading="lazy" alt="Todos los chicos en el jardín." /></a>
-							<h2>El patio</h2>
-							<p>Todos los chicos en el jardín.</p>
 						</article>
-						<article class="thumb foto">
+						<article class="thumb foto muda">
 							<a href="images/fulls/celebraciones-14.jpg" class="image"><img src="images/thumbs/celebraciones-14.jpg" loading="lazy" alt="Una tarde de verano entre los árboles." /></a>
-							<h2>En el jardín</h2>
-							<p>Una tarde de verano entre los árboles.</p>
 						</article>
 					</div>
 
@@ -326,6 +318,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/ezemoli.js"></script>
 
 	</body>
 </html>
